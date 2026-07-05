@@ -6,44 +6,118 @@ body {
     margin: 20px;
 }
 
+p {
+    line-height: 1.8 !important;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+/* Ẩn liên kết skip-link một cách thẩm mỹ, chỉ hiện khi tab focus (Tốt cho Accessibility - Bước 10) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #e67e22;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 0;
+}
+
 /* ==========================================
-   CĂN CHỈNH TIÊU ĐỀ LỚN H1 (BƯỚC 9)
+   CĂN CHỈNH TIÊU ĐỀ LỚN H1 (BƯỚC 9 trong bài cũ)
    ========================================== */
 h1 {
-    text-align: center !important;        /* Căn giữa chữ */
-    text-transform: uppercase !important; /* Chuyển thành chữ in hoa */
-    color: #e67e22 !important;            /* Đổi chữ sang màu cam rực rỡ */
+    text-align: center !important;
+    text-transform: uppercase !important;
+    color: #e67e22 !important;
     margin-top: 20px;
 }
 
 /* ==========================================
-   THANH ĐIỀU HƯỚNG & DANH SÁCH (BƯỚC 5 & 8)
+   THANH ĐIỀU HƯỚNG & DANH SÁCH (BƯỚC 3 & BƯỚC 4)
    ========================================== */
+/* BƯỚC 4: Thay đổi phần tử nav để dùng inline-block và rộng khoảng 80% */
 nav {
-    background-color: #2c3e50 !important; /* Đổi nền thanh menu thành xanh đậm */
+    display: inline-block !important;
+    width: 80% !important;
+    background-color: #2c3e50 !important;
     padding: 10px;
     border-radius: 5px;
+    vertical-align: middle;
 }
 
-/* Định kiểu cho các mục danh sách xếp hàng ngang */
+/* BƯỚC 3: Vô hiệu hóa định kiểu phần tử li bằng dấu chú thích (comment) */
+/* 
 li {
-    display: inline-block !important;     /* Xếp các mục menu nằm ngang */
-    width: 150px !important;              /* Chiều rộng cố định cho mục menu */
+    display: inline-block !important;
+    width: 150px !important;
     text-align: center;
 }
+*/
 
-/* Định kiểu cho chữ trong menu dễ nhìn hơn */
+/* Định kiểu danh sách cơ bản để các mục nằm ngang gọn gàng nếu cần */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
 li a {
-    color: #ffffff !important;            /* Chuyển chữ menu thành màu trắng */
+    color: #ffffff !important;
     text-decoration: none;
     font-weight: bold;
 }
 
+/* BƯỚC 5: Sử dụng bộ chọn con cháu chỉ định kiểu cho hình ảnh TRONG thanh điều hướng rộng 10% */
+nav img {
+    width: 10% !important;
+    height: auto;
+    vertical-align: middle;
+}
+
 /* ==========================================
-   ĐOẠN VĂN BẢN P (BƯỚC 10)
+   BƯỚC 6, 7 & 8: TÙY CHỈNH LỚP `grid` (Dùng cho Neighborhood)
    ========================================== */
-p {
-    line-height: 1.8 !important;          /* Giúp các dòng chữ thoáng, dễ đọc */
-    font-size: 15px;
-    margin-bottom: 15px;
+/* BƯỚC 6 & 8: Sử dụng lưới 2 cột, mỗi cột rộng 40%, căn giữa và tạo khoảng cách hàng */
+.grid {
+    display: grid !important;
+    grid-template-columns: 40% 40% !important; /* Mỗi cột chiếm 40% */
+    justify-content: center !important;        /* Căn giữa các cột theo chiều ngang */
+    align-items: center !important;            /* Căn giữa theo chiều dọc */
+    row-gap: 20px !important;                  /* Khoảng cách giữa các hàng ảnh */
+    column-gap: 5%;                            /* Khoảng cách giữa 2 cột để bù lại phần trăm còn thiếu */
+    margin: 20px 0;
+}
+
+/* BƯỚC 7: Sử dụng bộ chọn con cháu để ảnh trong lớp lưới rộng 100% */
+.grid img {
+    width: 100% !important;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* ==========================================
+   BƯỚC 9: TÙY CHỈNH LỚP `flex` (Dùng cho Parks)
+   ========================================== */
+/* Áp dụng flex, cho phép xuống hàng và căn đều nội dung */
+.flex {
+    display: flex !important;
+    flex-wrap: wrap !important;           /* Cho phép các hình ảnh tự động xuống hàng */
+    justify-content: space-around !important; /* Căn đều khoảng cách xung quanh các ảnh */
+    align-items: center !important;
+    gap: 15px;                            /* Tạo khoảng cách giữa các phần tử flex */
+    margin: 20px 0;
+}
+
+/* Bạn có thể đặt kích thước cố định hoặc linh hoạt cho ảnh trong flex để giao diện đẹp mắt */
+.flex img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
 }
